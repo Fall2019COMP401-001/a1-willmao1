@@ -23,14 +23,18 @@ public class A1Jedi {
 		for(int j = 0; j < times; j++) {
 			firstNames[j] = scanner.next();
 			lastNames[j] = scanner.next();
+			boolean[] isItemBought = new boolean[itemAmount];
 			for(int k = scanner.nextInt(); k > 0 ; k--) {		
 				int amount = scanner.nextInt();
 				String itemBought = scanner.next();		
 				for(int l = 0; l< itemAmount*2; l+=2) {							
 					if (items[l].equals(itemBought)) {
 						itemCost = amount*Double.parseDouble(items[l+1]);
-						customers[l]+=amount;
-						customers[l+1]+=1;
+						if (!isItemBought[l]) {
+							customers[l+1]+=1;
+							isItemBought[l] = true;
+						}
+						customers[l]+=amount;												
 						break;
 					}
 				}
