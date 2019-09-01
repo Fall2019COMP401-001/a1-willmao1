@@ -30,9 +30,9 @@ public class A1Jedi {
 				for(int l = 0; l< itemAmount*2; l+=2) {							
 					if (items[l].equals(itemBought)) {
 						itemCost = amount*Double.parseDouble(items[l+1]);
-						if (!isItemBought[l]) {
+						if (!isItemBought[l-(l/2)]) {
 							customers[l+1]+=1;
-							isItemBought[l] = true;
+							isItemBought[l-(l/2)] = true;
 						}
 						customers[l]+=amount;												
 						break;
